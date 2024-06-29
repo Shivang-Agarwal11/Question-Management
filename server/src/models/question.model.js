@@ -1,6 +1,11 @@
 const mongoose=require('mongoose')
 
 const questionSchema=mongoose.Schema({
+    title:{
+        type:String,
+        required:true
+
+    },
     siteName: {
         type: String,
         required: true
@@ -10,7 +15,7 @@ const questionSchema=mongoose.Schema({
         required: true
     },
     category: {
-        type: String,
+        type: [String],
         required: true
     },
     difficulty:{
@@ -20,6 +25,10 @@ const questionSchema=mongoose.Schema({
     user:{
         type: String,
         required:true
+    },
+    status:{
+        type:Number,
+        default:0
     }
 })
 
