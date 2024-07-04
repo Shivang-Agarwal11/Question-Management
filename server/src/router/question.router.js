@@ -84,8 +84,8 @@ router.patch('/question', async (req, res) => {
     }
 });
 
-router.delete('/question', async (req, res) => {
-    const question_id = req.body.id
+router.post('/delete/question', async (req, res) => {
+    const question_id = req.body.id;
     try {
         await Question.findOneAndDelete({_id:question_id});
         res.status(200).send({

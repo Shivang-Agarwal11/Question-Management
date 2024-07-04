@@ -1,9 +1,9 @@
 const mongoose=require('mongoose')
 
 const youtubeSchema=mongoose.Schema({
-    siteName: {
-        type: String,
-        required: true
+    title:{
+        type:String,
+        required:true
     },
     link: {
         type: String,

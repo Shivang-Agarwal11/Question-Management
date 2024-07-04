@@ -1,17 +1,21 @@
 const mongoose=require('mongoose')
 
 const articleSchema=mongoose.Schema({
-    siteName: {
-        type: String,
-        required: true
+    title:{
+        type:String,
+        required:true
+
     },
     link: {
         type: String,
         required: true
     },
     topic: {
-        type: String,
+        type: [String],
         required: true
+    },
+    notes:{
+        type:String
     },
     user:{
         type: String,
