@@ -25,6 +25,9 @@ const questionSchema=mongoose.Schema({
         type: String,
         required:true
     },
+    notes:{
+        type:[String]
+    },
     status:{
         type:Number,
         default:0
