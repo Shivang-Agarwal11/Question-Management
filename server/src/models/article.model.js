@@ -15,7 +15,7 @@ const articleSchema=mongoose.Schema({
         required: true
     },
     notes:{
-        type:String
+        type:[String]
     },
     user:{
         type: String,

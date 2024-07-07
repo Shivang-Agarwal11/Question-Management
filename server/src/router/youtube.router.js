@@ -53,7 +53,38 @@ router.post('/youtube', async (req, res) => {
     }
 });
 
-router.patch('/youtube', async (req, res) => {
+router.post('/youtube/notes', async (req, res) => {
+    try {
+        const video = await Youtube.findOne({_id:req.body.id})
+
+        const new_notes = video.notes;
+        const notes = [...new_notes,req.body.notes[0]]
+
+        await Youtube.findOneAndUpdate({_id:req.body.id},{
+            notes:notes
+        })
+        res.status(200).send({
+            status: {
+                code: 200,
+                message: 'Youtube notes Updated successfully'
+            },
+            data: {
+                youtube: video
+            }
+        })
+    }
+    catch (error) {
+        res.status(400).send({
+            status: {
+                code: 400,
+                message: 'Bad Request, probably format of input doesn\'t matches with prescribed format'
+            },
+            data: {}
+        })
+    }
+});
+
+router.post('/update/youtube', async (req, res) => {
     const youtube = req.body
     try {
         await Youtube.findOneAndUpdate({_id:req.body.id},{
@@ -83,7 +114,7 @@ router.patch('/youtube', async (req, res) => {
     }
 });
 
-router.delete('/youtube', async (req, res) => {
+router.post('/delete/youtube', async (req, res) => {
     const youtube_id = req.body.id
     try {
         await Youtube.findOneAndDelete({_id:youtube_id});

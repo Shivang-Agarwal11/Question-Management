@@ -11,6 +11,7 @@ require('../src/database/connect')
 const questionRouter = require('../src/router/question.router')
 const articleRouter = require('../src/router/article.router')
 const youtubeRouter = require('../src/router/youtube.router')
+const worklogRouter = require('../src/router/worklog.router')
 const serverless = require("serverless-http");
 const app = express()
 const port = process.env.PORT
@@ -25,4 +26,5 @@ app.use(cors())
 app.use("/.netlify/functions/api",questionRouter);
 app.use("/.netlify/functions/api",youtubeRouter);
 app.use("/.netlify/functions/api",articleRouter);
+app.use("/.netlify/functions/api",worklogRouter);
 module.exports.handler = serverless(app);

@@ -10,11 +10,15 @@ const youtubeSchema=mongoose.Schema({
         required: true
     },
     topic: {
-        type: String,
+        type: [String],
         required: true
     },
     user:{
         type: String,
+        required:true
+    },
+    notes:{
+        type:[String],
         required:true
     }
 })
