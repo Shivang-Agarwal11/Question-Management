@@ -58,6 +58,7 @@ router.post('/update/question', async (req, res) => {
     // console.log(question)
     try {
         await Question.findOneAndUpdate({_id:req.body.id},{
+            title:req.body.title,
             siteName: req.body.siteName,
             link: req.body.link,
             category:req.body.category,
